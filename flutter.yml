@@ -1,0 +1,8 @@
+version: '2'
+services:
+    flutter:
+        image: adamantium/flutter
+        volumes:
+            - ./hello_flutter:/flutter
+        working_dir: /flutter
+        entrypoint: /bin/sh -c "python3 -m http.server 3213"
