@@ -57,6 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _minusCounter(){
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -91,6 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            IconButton(
+              onPressed: _minusCounter,
+              tooltip: 'Minus',
+              icon: Icon(Icons.airline_seat_flat),
+            ),
             Text(
               'You have pushed the button this many times:',
             ),

@@ -1,8 +1,8 @@
 version: '2'
 services:
     flutter:
-        image: adamantium/flutter
+        image: softtiny01/flutter0
         volumes:
-            - .:/flutter
-        working_dir: /flutter
+            - .:/hello_flutter
+        working_dir: /hello_flutter
         entrypoint: tail -f /etc/hosts
