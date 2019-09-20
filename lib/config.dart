@@ -1,0 +1,1 @@
+final String domain = 'http://test.321tips.com/';
