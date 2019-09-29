@@ -6,7 +6,7 @@ import 'package:hello_flutter/model/app_state_model.dart';
 
 import './route/route.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(TinyApp());
 
 typedef UpdateUrlFetcher = Future<String> Function();
 
