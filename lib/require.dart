@@ -14,13 +14,15 @@ class _Service{
     print(client);
   }
   _responseUse(response){
+    if(response==null){ return null; }
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON. 
       var data = json.decode(response.body);
       return data;
     } else {
       // If that call was not successful, throw an error.
-      throw Exception('Failed to load post');
+      print('Failed to load post');
+      return null;
     }
   }
   Future get(String path) async {

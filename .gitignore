@@ -24,6 +24,8 @@ package-lock.json
 **/node_modules/*
 **/compile/*
 **/compile
+android/**
+ios/**
 .idea/**
 .vscode/**
 config/**

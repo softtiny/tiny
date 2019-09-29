@@ -1,6 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show defaultTargetPlatform;
+import 'package:scoped_model/scoped_model.dart';
+
+import 'package:hello_flutter/model/app_state_model.dart';
+
+import './route/route.dart';
 
 void main() => runApp(MyApp());
+
+typedef UpdateUrlFetcher = Future<String> Function();
+
+class TinyApp extends StatefulWidget {
+  const TinyApp({
+    Key key,
+    this.updateUrlFetcher,
+    this.enablePerformanceOverlay = true,
+    this.enableRasterCacheImagesCheckerboard = true,
+    this.enableOffscreenLayersCheckerboard = true,
+    this.onSendFeedback,
+    this.testMode = false,
+  }) : super(key: key);
+  final UpdateUrlFetcher updateUrlFetcher;
+  final bool enablePerformanceOverlay;
+  final bool enableRasterCacheImagesCheckerboard;
+  final bool enableOffscreenLayersCheckerboard;
+  final VoidCallback onSendFeedback;
+  final bool testMode;
+
+  @override
+  _TinyAppState createState() => _TinyAppState();
+}
+
+class _TinyAppState extends State<TinyApp> {
+  AppStateModel model;
+
+  @override
+  void initState() {
+    super.initState();
+    model = AppStateModel();
+  }
+  @override
+  Widget build(BuildContext context){
+    //todo
+    return ScopedModel<AppStateModel>(
+      model: model,
+      child: MaterialApp(
+        routes: route,
+        builder: (BuildContext context, Widget child){
+          return child;
+        },
+        home: MyHomePage(title: 'Flutter Demo Home Page'),
+      )
+    );
+  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -62,7 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter--;
     });
   }
-
+  void _gofields(BuildContext context){
+    Navigator.pushNamed(context, '/field');
+  }
+  void _gocards(BuildContext context){
+    Navigator.pushNamed(context, '/cards');
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -101,6 +159,20 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: _minusCounter,
               tooltip: 'Minus',
               icon: Icon(Icons.airline_seat_flat),
+            ),
+            IconButton(
+              onPressed: (){
+                _gofields(context);
+              },
+              tooltip: 'go fields',
+              icon: Icon(Icons.perm_data_setting),
+            ),
+            IconButton(
+              onPressed: (){
+                _gocards(context);
+              },
+              tooltip: 'go cards',
+              icon: Icon(Icons.perm_media),
             ),
             Text(
               'You have pushed the button this many times:',
