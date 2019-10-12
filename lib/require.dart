@@ -1,14 +1,30 @@
+import 'package:f_logs/constants/constants.dart';
+import 'package:f_logs/constants/db_constants.dart';
+import 'package:f_logs/data/local/app_database.dart';
+import 'package:f_logs/data/local/flog_dao.dart';
+import 'package:f_logs/model/datalog/data_log_type.dart';
+import 'package:f_logs/model/flog/flog.dart';
+import 'package:f_logs/model/flog/flog_config.dart';
+import 'package:f_logs/model/flog/log.dart';
+import 'package:f_logs/model/flog/log_level.dart';
+import 'package:f_logs/utils/filters/filters.dart';
+import 'package:f_logs/utils/formatter/formate_type.dart';
+import 'package:f_logs/utils/formatter/formatter.dart';
+import 'package:f_logs/utils/storage/logs_storage.dart';
+import 'package:f_logs/utils/timestamp/timestamp_format.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import './config.dart';
 import 'dart:convert';
+
 class _Service{
-  _Service();
+ 
   String baseUrl=domain;
   String _opratePath( String path ){
     return "${baseUrl}${path}";
   }
   http.Client httpClient = http.Client();
+   _Service();
   void reWriteClient(http.Client client){
     httpClient = client;
     print(client);
@@ -26,6 +42,10 @@ class _Service{
     }
   }
   Future get(String path) async {
+    FLog.info(
+      className: "require",
+      methodName: "get",
+      text: path);
     path = _opratePath(path);
     final response =
         await httpClient.get(path);
@@ -34,7 +54,7 @@ class _Service{
   Future post(String path,params) async {
     path = _opratePath(path);
     final response =
-        await httpClient.post(path);
+        await httpClient.post(path,body:params);
     return _responseUse(response);
   }
 }

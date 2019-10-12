@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show defaultTargetPlatform;
 import 'package:scoped_model/scoped_model.dart';
-
+import 'dart:async';
+import 'package:http/http.dart' as http;
 import 'package:hello_flutter/model/app_state_model.dart';
 
 import './route/route.dart';
+import './config.dart';
 
 void main() => runApp(TinyApp());
 
@@ -108,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+    http.Client httpClient = http.Client();
+    httpClient.get('http://qq.com/sdkd');
   }
 
   void _minusCounter(){
@@ -120,6 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   void _gocards(BuildContext context){
     Navigator.pushNamed(context, '/cards');
+  }
+  void _golog(BuildContext context){
+    Navigator.pushNamed(context, '/log');
   }
   @override
   Widget build(BuildContext context) {
@@ -162,6 +169,20 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             IconButton(
               onPressed: (){
+                _golog(context);
+              },
+              tooltip: 'go log',
+              icon: Icon(Icons.score),
+            ),
+            IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/demo');
+              },
+              tooltip: 'go demo',
+              icon: Icon(Icons.queue_music),
+            ),
+            IconButton(
+              onPressed: (){
                 _gofields(context);
               },
               tooltip: 'go fields',
@@ -173,6 +194,25 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               tooltip: 'go cards',
               icon: Icon(Icons.perm_media),
+            ),
+            IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/openvlc');
+              },
+              tooltip: 'go openvlc',
+              icon: Icon(Icons.open_in_browser),
+            ),
+            Text(
+              'pythonurl:${domain}|||',
+            ),
+            Text(
+              'vlcDomain:${vlcDomain}|||',
+            ),
+            Text(
+              'imgDomain:${imgDomain}|||',
+            ),
+            Text(
+              'cateId:${cateId}||',
             ),
             Text(
               'You have pushed the button this many times:',

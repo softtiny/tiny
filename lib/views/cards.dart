@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../api.dart';
 import '../config.dart';
+import '../TUBEtool.dart';
 
 
 
@@ -32,6 +33,7 @@ class TravelDestinationContent extends StatelessWidget {
   final TravelDestination destination;
   @override
   Widget build(BuildContext context){
+    print(imgDomain+destination.imgs[0]['rel_path']);
     final ThemeData theme = Theme.of(context);
     final TextStyle titleStyle = theme.textTheme.headline.copyWith(color: Colors.white);
     final List<Widget> children = <Widget>[
@@ -50,13 +52,19 @@ class TravelDestinationContent extends StatelessWidget {
               bottom: 16.0,
               left: 16.0,
               right: 16.0,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  destination.title,
+              child:GestureDetector(
+                onTap: (){
+                  TUBEtool.openvlc(destination.rel_path);
+                },
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    destination.title,
+                  ),
                 ),
               ),
+              
             ),
           ],
         ),
@@ -67,16 +75,8 @@ class TravelDestinationContent extends StatelessWidget {
           softWrap: false,
           overflow: TextOverflow.ellipsis,
           style: titleStyle,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(bottom: 8.0),
-                child: Text(
+          child: Text(
                   destination.duration,
-                ),
-              ),
-            ],
           ),
         ),
       ),

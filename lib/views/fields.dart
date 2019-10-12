@@ -40,6 +40,7 @@ class FieldState extends State<Field> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   const SizedBox(height: 24.0,),
+                  const SizedBox(height: 24.0,),
                   TextFormField(
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
@@ -99,6 +100,69 @@ class FieldState extends State<Field> {
                         setVlc(urls.vlcurl);
                         setImg(urls.l_img);
                         setCateId(urls.l_cateId);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('pythonurl:http://10.220.8.242:8000/'),
+                      onPressed: (){
+                        setDomain('http://10.220.8.242:8000/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('pythonurl:http://192.168.0.104:8000/'),
+                      onPressed: (){
+                        setDomain('http://192.168.0.104:8000/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('setImg:http://10.220.8.242:8000/'),
+                      onPressed: (){
+                        setImg('http://10.220.8.242:8000/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('setImg:http://192.168.0.104:8000/'),
+                      onPressed: (){
+                        setImg('http://192.168.0.104:8000/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('setVlc:192.168.0.104/share/'),
+                      onPressed: (){
+                        setVlc('192.168.0.104/share/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('smb://10.220.8.242/share/'),
+                      onPressed: (){
+                        setVlc('10.220.8.242/share/');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Center(
+                    child: RaisedButton(
+                      child: const Text('setCateId:7'),
+                      onPressed: (){
+                        setCateId('7');
                       },
                     ),
                   ),
