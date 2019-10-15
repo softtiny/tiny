@@ -26,7 +26,7 @@ class DemoState extends State<Demo> {
                       child: Container(),
                     ),
                   ),
-                  Positioned(
+                Positioned(
                     bottom: 16.0,
                     left: 16.0,
                     right: 16.0,
@@ -43,7 +43,6 @@ class DemoState extends State<Demo> {
                         ),
                       ),
                     ),
-                    
                   ),
               ],
             ),

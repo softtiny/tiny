@@ -7,7 +7,7 @@ import 'package:hello_flutter/model/app_state_model.dart';
 
 import './route/route.dart';
 import './config.dart';
-
+import './DBConf.dart';
 void main() => runApp(TinyApp());
 
 typedef UpdateUrlFetcher = Future<String> Function();
@@ -44,6 +44,7 @@ class _TinyAppState extends State<TinyApp> {
   @override
   Widget build(BuildContext context){
     //todo
+    DBConf.TCdbinit();
     return ScopedModel<AppStateModel>(
       model: model,
       child: MaterialApp(
@@ -201,6 +202,13 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               tooltip: 'go openvlc',
               icon: Icon(Icons.open_in_browser),
+            ),
+            IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/datatable');
+              },
+              tooltip: 'go data table',
+              icon: Icon(Icons.table_chart),
             ),
             Text(
               'pythonurl:${domain}|||',

@@ -49,6 +49,14 @@ class LogWidState extends State<LogWid> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('logs list'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.clear_all),
+            onPressed: (){
+              FLog.clearLogs();
+            },
+          ),
+        ],
       ),
       body:Scrollbar(
         child: ListView(

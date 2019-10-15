@@ -3,7 +3,7 @@ import '../views/cards.dart';
 import '../views/log.dart';
 import '../views/demo.dart';
 import '../views/openvlc.dart';
-
+import '../views/datatable.dart';
 import 'package:flutter/material.dart';
 
 Map<String, WidgetBuilder> route = {
@@ -12,4 +12,5 @@ Map<String, WidgetBuilder> route = {
   '/log':(BuildContext context) => const LogWid(),
   '/demo':(BuildContext context) => const Demo(),
   '/openvlc':(BuildContext context) => const OpenVlc(),
+  '/datatable':(BuildContext context) => const DataTableWd(),
 };

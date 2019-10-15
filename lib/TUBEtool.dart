@@ -4,7 +4,7 @@ import 'package:path/path.dart' as path;
 class _TUBEtool{
   void openvlc(String url) async{
     String str1 = path.posix.normalize(path.join(vlcDomain,url));
-    String str2 = 'smb://root@${str1}';
+    String str2 = '${vlcStart}${str1}';
     AndroidIntent vlcIntent = AndroidIntent(
       action: 'action_view',
       data: Uri.encodeFull(str2),

@@ -8,6 +8,7 @@ class linkData {
   String vlcurl = vlcDomain;
   String l_img = imgDomain;
   String l_cateId=cateId;
+  String l_vlcStart=vlcStart;
 }
 
 class Field extends StatefulWidget {
@@ -42,6 +43,7 @@ class FieldState extends State<Field> {
                   const SizedBox(height: 24.0,),
                   const SizedBox(height: 24.0,),
                   TextFormField(
+                    controller: TextEditingController()..text=urls.pythonurl,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
@@ -54,6 +56,7 @@ class FieldState extends State<Field> {
                   ),
                   const SizedBox(height: 24.0,),
                   TextFormField(
+                    controller: TextEditingController()..text=urls.vlcurl,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
@@ -66,6 +69,20 @@ class FieldState extends State<Field> {
                   ),
                   const SizedBox(height: 24.0,),
                   TextFormField(
+                    controller: TextEditingController()..text=urls.l_vlcStart,
+                    textCapitalization: TextCapitalization.words,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      filled:true,
+                      labelText: 'vlc start',
+                    ),
+                    onSaved:(String value){
+                      urls.l_vlcStart=value;
+                    },
+                  ),
+                  const SizedBox(height: 24.0,),
+                  TextFormField(
+                    controller: TextEditingController()..text=urls.l_img,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
@@ -78,6 +95,7 @@ class FieldState extends State<Field> {
                   ),
                   const SizedBox(height: 24.0,),
                   TextFormField(
+                    controller: TextEditingController()..text=urls.l_cateId,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
@@ -100,6 +118,7 @@ class FieldState extends State<Field> {
                         setVlc(urls.vlcurl);
                         setImg(urls.l_img);
                         setCateId(urls.l_cateId);
+                        setVlcStart(urls.l_vlcStart);
                       },
                     ),
                   ),
