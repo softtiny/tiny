@@ -48,7 +48,6 @@ class VpngateApp:
         self.saveToData(reader)
         self.deleteOutTime()
     def saveToData(self,reader):
-        print(len(reader))
         updatetime=datetime.datetime.now()
         for row in reader:
             ip=None
