@@ -1,6 +1,7 @@
 from peewee import *
+from playhouse.sqlcipher_ext import SqlCipherDatabase
 import datetime
-db = SqliteDatabase('vpngate.db')
+db = SqlCipherDatabase('vpngate.db',passphrase="qwe123qwe")
 
 class BaseModel(Model):
     class Meta:

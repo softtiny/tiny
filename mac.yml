@@ -1,0 +1,10 @@
+version: '2'
+services:
+    dg:
+        image: softtiny01/django0
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./:/vpngate
+        working_dir: /lina/broswer
+        entrypoint: /bin/sh -c "python3 -m http.server 3213"
