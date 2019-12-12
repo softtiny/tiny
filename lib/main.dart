@@ -163,52 +163,57 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            IconButton(
+            RaisedButton(
               onPressed: _minusCounter,
-              tooltip: 'Minus',
-              icon: Icon(Icons.airline_seat_flat),
+              child: const Text('Minus'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 _golog(context);
               },
-              tooltip: 'go log',
-              icon: Icon(Icons.score),
+              child: const Text('go log'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 Navigator.pushNamed(context, '/demo');
               },
-              tooltip: 'go demo',
-              icon: Icon(Icons.queue_music),
+              child: const Text('go demo'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 _gofields(context);
               },
-              tooltip: 'go fields',
-              icon: Icon(Icons.perm_data_setting),
+              child: const Text('go fields'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 _gocards(context);
               },
-              tooltip: 'go cards',
-              icon: Icon(Icons.perm_media),
+              child: const Text('go cards'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 Navigator.pushNamed(context, '/openvlc');
               },
-              tooltip: 'go openvlc',
-              icon: Icon(Icons.open_in_browser),
+              child: const Text('go openvlc'),
             ),
-            IconButton(
+            RaisedButton(
               onPressed: (){
                 Navigator.pushNamed(context, '/datatable');
               },
-              tooltip: 'go data table',
-              icon: Icon(Icons.table_chart),
+              child: const Text('go data table'),
+            ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/pageblock');
+              },
+              child: const Text('go pageblock'),
+            ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/grids');
+              },
+              child: const Text('go grids'),
             ),
             Text(
               'pythonurl:${domain}|||',

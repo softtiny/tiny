@@ -42,10 +42,6 @@ class _Service{
     }
   }
   Future get(String path) async {
-    FLog.info(
-      className: "require",
-      methodName: "get",
-      text: path);
     path = _opratePath(path);
     final response =
         await httpClient.get(path);

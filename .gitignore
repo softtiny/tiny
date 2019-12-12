@@ -1,10 +1,15 @@
 .DS_Store
+cp.sh
 tmp/**
 core
 ios/**
 ios
 build/
 build/**
+.gradle/
+.gradle/**
+android/
+android/**
 *.tar
 **/*.tar
 *idea*/
