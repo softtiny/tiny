@@ -116,8 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _minusCounter(){
-    setState(() {
-      _counter--;
+    DBConf.TCconfs().then((res){
+      dynamic item = res[3];
+      setDomain(item['domain']);
+      setVlc(item['vlc_domain']);
+      setImg(item['img_domain']);
+      setCateId(item['cate_id']);
+      setVlcStart(item['vlc_start']);
     });
   }
   void _gofields(BuildContext context){

@@ -71,9 +71,20 @@ class GridsState extends State<Grids>{
       return PageView(
         children: data.map<Widget>((TravelDestination destination){
           List<Widget> result = destination.imgs.map<Widget>((imgsrc){
-            
-            return Image.network(
-              imgDomain+imgsrc['rel_path'],
+            return GestureDetector(
+              onTap: (){
+                showDialog(
+                  context:context,
+                  builder:(BuildContext context) => CustomDialog(
+                    title: imgDomain+imgsrc['rel_path'],
+                  ),
+                );
+              },
+              child: Container(
+                child: Image.network(
+                  imgDomain+imgsrc['rel_path'],
+                ),
+              ),
             );
           }).toList();
           result.add(Center(
@@ -128,5 +139,29 @@ class GridsState extends State<Grids>{
       ),
       body: fbuilder,
     );
+  }
+}
+
+
+
+class CustomDialog extends StatelessWidget {
+  final String title;
+  CustomDialog({
+    @required this.title,
+  });
+   @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pop(); // To close the dialog
+      },
+      child:Container(
+        child:Center(
+          child:Image.network(
+            title,
+          ),
+        ),
+      ),
+    ); 
   }
 }

@@ -101,6 +101,15 @@ class DataTableWdState extends State<DataTableWd> {
                     setVlcStart(item['vlc_start']);
                   },
                 ),
+                RaisedButton(
+                  child: Text("del"),
+                  onPressed: (){
+                    DBConf.TCdeleteOne(item['id']).then((res){
+                      getall();
+                    });
+                    
+                  },
+                ),
               ],
             ),
           );

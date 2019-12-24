@@ -54,6 +54,13 @@ class _DBConf{
         text: 'db err ${err}');
     });
   }
+  Future TCdeleteOne(int id) async {
+    await database.delete('tc_confs',where:"id = ?",whereArgs:[id] );
+    FLog.info(
+      className: "DBConf",
+      methodName: "TCdeleteConf",
+      text: 'delete: ${id}');
+  }
   Future TCinsertConf({String domain,String vlcDomain,String imgDomain,String cateId,String vlcStart}) async {
     await database.insert('tc_confs',{
       'domain':domain,
