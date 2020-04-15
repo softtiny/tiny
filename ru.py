@@ -27,6 +27,25 @@ class RequestHandler(BaseHTTPRequestHandler):
                 file.write(text)
         self.send_response(200)
         self.wfile.write(text)
+#uwsgi
+def application(env,start_response):
+    if os.path.exists('./oo.html'):
+        if int(time.time()) - int(os.path.getmtime('./oo.html')) < 36000000:
+            print("< 36000000")
+            with open('./oo.html',encoding="utf-8") as file:
+                text= file.read().encode('utf-8')
+        else:  
+            text = urlopen('https://npmjs.org/package/streetscape.gl').read()
+            with open('./oo.html','wb') as file:
+                file.write(text)
+    else:
+        text = urlopen('https://npmjs.org/package/streetscape.gl').read()
+        with open('./oo.html','wb') as file:
+            file.write(text)
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [test.encode()]
+
+
 
 def run(server_class=HTTPServer,handler_class=BaseHTTPRequestHandler):
     server_address = (HOST_ADDRESS,HOST_PORT)
