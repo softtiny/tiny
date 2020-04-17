@@ -1,7 +1,7 @@
 
 ##Linux守护进程Shell脚本
 
- copy from here(https://www.jianshu.com/p/75a2837cceab)
+ copy from [here](https://www.jianshu.com/p/75a2837cceab)
 ```shell
 #! /bin/sh
 #进程名字可修改
