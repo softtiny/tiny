@@ -14,17 +14,17 @@ def page_node_found(path):
     url = request.url
     for spec in [':','/','.','?','#']:
         url = "".join( url.split(spec)  )
-    if os.path.exists(f'/home/mac/.cache/pgithub/{url}'):
-        return send_file(f'/home/mac/.cache/pgithub/{url}') 
+    if os.path.exists('/home/mac/.cache/pgithub/{}'.format(url)):
+        return send_file('/home/mac/.cache/pgithub/{}'.format(url)) 
     else:
         command = [ 
             'curl',
             '-L',
             '--output',
-            f'/home/mac/.cache/pgithub/{url}',
-            f'{SITE_NAME}/{path}'
+            '/home/mac/.cache/pgithub/{}'.format(url),
+            '{}/{}'.format(SITE_NAME,path),
         ]
         print(command)
         subprocess.call(command)
-        return send_file(f'/home/mac/.cache/pgithub/{url}') 
+        return send_file('/home/mac/.cache/pgithub/{}'.format(url)) 
     return "index page"
