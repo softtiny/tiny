@@ -26,6 +26,10 @@ config/**
 **/.idea/**/*
 **/.idea/*
 feed/django/django/**
+__pycache__
+__pycache__/*
+venv
+venv/*
 # Editor directories and files
 .idea
 .vscode
