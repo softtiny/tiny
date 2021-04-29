@@ -11,7 +11,7 @@ def load_app(name=application_name):
 class TestController:
     application_under_test = application_name
     def setUp(self):
-        self.app=load_app(self.application_under_test)
+        self.app=load_app()
     def test_ok(self):
         "okkking"
         pass
