@@ -10,7 +10,11 @@ autorun.egg-info/not-zip-safe
 autorun.egg-info/pbr.json
 autorun.egg-info/top_level.txt
 autorun/app/__init__.py
+autorun/app/abcd.py
 autorun/app/autorun.py
+autorun/app/hook.py
+autorun/app/settings.py
+autorun/app/step.py
 autorun/conf/__init__.py
 autorun/conf/application.py
 autorun/conf/settings.py
@@ -23,6 +27,8 @@ autorun/utils/git/git.py
 autorun/app/__init__.py
 autorun/app/abcd.py
 autorun/app/autorun.py
+autorun/app/bash.py
+autorun/app/hook.py
 autorun/app/settings.py
 autorun/app/step.py
 autorun/conf/__init__.py

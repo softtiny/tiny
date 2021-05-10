@@ -1,4 +1,5 @@
 from .settings import settings
+from .bash import BaseBash
 from . import abcd
 class _Autorun:
     def __init__(self):
@@ -8,4 +9,5 @@ class _Autorun:
 
     def __call__(self):
         abcd.StartRuning()
+        self.bash=BaseBash()
         pass
